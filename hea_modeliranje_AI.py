@@ -452,6 +452,16 @@ nosilec_podatkov=[]; dolzine=[]; one_shot=[]
 nosilec_podatkov_status=StringVar()
 nosilec_podatkov_status.set('NO DATA')
 
+def stevilo_zlitin(numero):  # numero = stevilo shranjenih zlitin po posamezni iteraciji
+    global dolzine
+    dolzine.append(numero)
+    stzlit=sum(dolzine)
+    if stzlit==1:
+        nosilec_podatkov_status.set(str(stzlit)+' alloy to show..')
+    else:
+        nosilec_podatkov_status.set(str(stzlit)+' alloys to show..')
+
+
 
 def calculate():
     global mass_perc, one_shot
@@ -822,6 +832,8 @@ rs1var.set(25)#; im22var.set(25)      # koncni atomski %
 ss1var.set(5.0)#; ss2var.set(5)             # korak (at.%)
 dd1var.set(1.0)#; dd2var.set(1)             # scaling
 
+nps= Label(frame, textvariable=nosilec_podatkov_status, width=23, bg='#47476b', fg='#ff3300', font=('Calibry Body', '10', 'bold'))
+nps.grid(row=25, column=13, columnspan=3)
 
 # ADDITION of elements for Substitution iteration - using radiobuttons
 font_add_buttons=('Arial 11')
@@ -2330,18 +2342,6 @@ def brisi_joint():
 
 Button(frame, text='Show All', width=12, command=total_plot).grid(row=24, column=13, columnspan=2, sticky=W) # prikaze vse na nosilcu podatkov
 Button(frame, text='Clear Data', width=12, command=brisi_joint).grid(row=24, column=14, columnspan=2, sticky=E) # izbrise nosilec podatkov
-nps= Label(frame, textvariable=nosilec_podatkov_status, width=23, bg='#47476b', fg='#ff3300', font=('Calibry Body', '10', 'bold'))
-nps.grid(row=25, column=13, columnspan=3)
-
-def stevilo_zlitin(numero):  # numero = stevilo shranjenih zlitin po posamezni iteraciji
-    global dolzine
-    dolzine.append(numero)
-    stzlit=sum(dolzine)
-    if stzlit==1:
-        nosilec_podatkov_status.set(str(stzlit)+' alloy to show..')
-    else:
-        nosilec_podatkov_status.set(str(stzlit)+' alloys to show..')
-
 
 
 def corr(e):
@@ -2415,9 +2415,9 @@ modified=Radiobutton(frame, text='ADVANCED', command=lambda: choice_mode.set('mo
 basic.grid(row=33, column=1)
 modified.grid(row=33, column=1, sticky=E)
     
-root.mainloop()
+#root.mainloop()
 
 # final label at the bottom of Iterator Machine frame
-#Label(frame, text='', bg=frame_bg).grid(row=34, column=1)
+Label(frame, text='', bg=frame_bg).grid(row=34, column=1)
 # ****** THIS IS THE END ***************
 
