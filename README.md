@@ -12,3 +12,9 @@ You can choose Advanced radiobutton to perform correlations of complex parameter
 Finally, there is iterator machine, which performs automatic calculation for given elements, in given interval of atomic % and given step size..
 
 More info is available at:  taoteck@gmail.com   (dr. Andraž Kocjan)
+
+
+*******************************************************
+EXECUTABLE Python file is  >>>    hea_modeliranje_AI.py
+*******************************************************
+
